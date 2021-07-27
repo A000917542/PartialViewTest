@@ -19,7 +19,6 @@ namespace PartialViewTest.Pages
         public IEnumerable<ChatMessage> ChatLog;
 
         [FromForm]
-        [FromQuery]
         public ChatMessage Message { get; set; }
 
         public IndexModel(ILogger<IndexModel> logger, ChatContext context)
@@ -36,12 +35,12 @@ namespace PartialViewTest.Pages
             //};
         }
 
-        public void OnGet()
+        public void OnGet([Bind("MessageID, Message, UserName, WasRead", Prefix = "Message")] ChatMessage chatMessage)
         {
-            if (Message != null && Message.MessageID > 0)
+            if (chatMessage != null && chatMessage.MessageID > 0)
             {
-                Message.WasRead = true;
-                _context.Messages.Update(Message);
+                chatMessage.WasRead = true;
+                _context.Messages.Update(chatMessage);
                 _context.SaveChanges();
             }
 

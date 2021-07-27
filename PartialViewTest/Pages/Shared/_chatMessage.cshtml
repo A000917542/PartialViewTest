@@ -8,9 +8,9 @@
 <form method="get" class="chat-message">
     <h2 class="chat-user">@Model.UserName</h2>
     <p class="chat-body">@Model.Message</p>
-    <input asp-for="@Model.MessageID" type="hidden" />
-    <input asp-for="@Model.UserName" type="hidden" />
-    <input asp-for="@Model.Message" type="hidden" />
-    <input asp-for="@Model.WasRead" />
+    <input asp-for="@Model.MessageID" name="Message.MessageID" type="hidden" id="@String.Concat("MessageID", @Model.MessageID)" />
+    <input asp-for="@Model.UserName" name="Message.UserName" type="hidden" id="@String.Concat("UserName", @Model.MessageID)" />
+    <input asp-for="@Model.Message" name="Message.Message" type="hidden" id="@String.Concat("Message", @Model.MessageID)" />
+    <input asp-for="@Model.WasRead" name="Message.WasRead" id="@String.Concat("WasRead", @Model.MessageID)" />
     <input type="submit" />
 </form>

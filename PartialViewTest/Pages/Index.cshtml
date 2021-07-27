@@ -2,13 +2,16 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+    var log = Model.ChatLog.ToArray();
 }
 
 <section>
-    @foreach (var msg in Model.ChatLog)
+    @{ int i = 0; }
+    @foreach (var msg in log)
             {
-                <partial name="_chatMessage" model="@msg" />
-            }
+                <partial name="_chatMessage" model="log[i]" />
+        i++;
+    }
 </section>
 
 <form asp-page="./index" method="post">
