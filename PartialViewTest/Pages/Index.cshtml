@@ -1,0 +1,22 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<section>
+    @foreach (var msg in Model.ChatLog)
+            {
+                <partial name="_chatMessage" model="@msg" />
+            }
+</section>
+
+<form asp-page="./index" method="post">
+    <label asp-for="Message.UserName">User:</label>
+    <input asp-for="Message.UserName" />
+    <label asp-for="Message.Message">Message:</label>
+    <input asp-for="Message.Message" />
+    <label asp-for="Message.WasRead"></label>
+    <input asp-for="Message.WasRead" />
+    <input type="submit" />
+</form>

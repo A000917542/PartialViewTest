@@ -1,0 +1,16 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model PartialViewTest.Data.ChatMessage
+@{
+}
+
+<form method="get" class="chat-message">
+    <h2 class="chat-user">@Model.UserName</h2>
+    <p class="chat-body">@Model.Message</p>
+    <input asp-for="@Model.MessageID" type="hidden" />
+    <input asp-for="@Model.UserName" type="hidden" />
+    <input asp-for="@Model.Message" type="hidden" />
+    <input asp-for="@Model.WasRead" />
+    <input type="submit" />
+</form>
