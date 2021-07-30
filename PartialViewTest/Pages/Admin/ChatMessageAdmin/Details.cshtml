@@ -1,0 +1,38 @@
+﻿@page
+@model PartialViewTest.Pages.Admin.ChatMessageAdmin.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ChatMessage</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ChatMessage.UserName)
+            @*<label asp-for="ChatMessage.UserName" ></label>*@
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ChatMessage.UserName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ChatMessage.Message)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ChatMessage.Message)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ChatMessage.WasRead)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ChatMessage.WasRead)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.ChatMessage.MessageID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

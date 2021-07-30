@@ -10,7 +10,8 @@ namespace PartialViewTest.Data
     {
         [Key]
         public int MessageID { get; set; }
-        
+
+        [Display(Name = "User Name")]
         [StringLength(128, MinimumLength = 3)]
         public string UserName { get; set; }
         public string Message { get; set; }
